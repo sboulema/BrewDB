@@ -26,3 +26,7 @@ Small but very handy SQLite database containing a lot of info on the ingredients
 For possible usages of this database, have a look at these projects:
 - [Hops Website](https://github.com/sboulema/Hops)
 - [Hops Json](https://github.com/stuartraetaylor/hops-json)
+
+# Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) on how you can contribute to this project
