@@ -70,7 +70,7 @@ In this document we will dive into the database structure and some guidelines to
 | Description | Text description of the malt                        |
 | EBCMin      | Minimum EBC value                                   |
 | EBCMax      | Maximum EBC value                                   |
-| Maltser     | FK to the LookupMaltser table **                    | 
+| Maltser     | FK to the LookupMaltser table                       | 
 | Ratio       | Maximum percentage of the grist                     |
 | Yield       | Maximum percentage of the weight as soluble extract |
 
@@ -96,6 +96,10 @@ In this document we will dive into the database structure and some guidelines to
 | Lab            |                                            |
 | AttenuationMin | Minimum percentage of attenuation          |
 | AttenuationMax | Maximum percentage of attenuation          |
+| Form           | FK to LookupYeastForm table Id             |
+| Flocculation   | FK to LookupYeastFlocculation table Id     |
+| Styles         | Text description of suitable styles        |
+| Strain         | Text description of strain type            |
 
 ## LookupLab
 **Database table containing all lab info**
@@ -103,3 +107,17 @@ In this document we will dive into the database structure and some guidelines to
 | ------ | --------------- |
 | Id     | Unique Id       |
 | Name   | Name of the lab |
+
+## LookupYeastForm
+**Database table containing all yeast form info**
+| Column | Description            |
+| ------ | ---------------------- |
+| Id     | Unique Id              |
+| Name   | Name of the yeast form |
+
+## LookupYeastFlocculation
+**Database table containing all yeast flocculation info**
+| Column | Description                          |
+| ------ | ------------------------------------ |
+| Id     | Unique Id                            |
+| Name   | Name of the yeast flocculation level |
