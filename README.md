@@ -5,7 +5,7 @@ Small but very handy SQLite database containing a lot of info on the ingredients
 
 ## Hops
 - Brewing usage (aroma, bittering, both)
-- Aroma's
+- Aromas
 - Possible substitutions
 - Possible aliases
 
@@ -17,6 +17,9 @@ Small but very handy SQLite database containing a lot of info on the ingredients
 - Lab
 - Temperature range
 - Attenuation range
+- Apparent flocculation
+- Strain
+- Alcohol Tolerance
 
 # Preview
 [SQLite Online](https://sqliteonline.com/#fiddle=3f68ad2accc827d5553d2f241a25b70de16f6988ed66160f2b5f0730cdad19ee)
