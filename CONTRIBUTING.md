@@ -75,7 +75,7 @@ In this document we will dive into the database structure and some guidelines to
 | Yield       | Maximum percentage of the weight as soluble extract |
 
 ### Notes
-> If a malt is available from multiple maltsers under the same malt name, seperate entries should be created
+> If a malt is available from multiple maltsters under the same malt name, seperate entries should be created
 
 ## LookupMaltser
 **Database table containing all maltser info**
