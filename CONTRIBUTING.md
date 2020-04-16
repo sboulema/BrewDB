@@ -41,7 +41,7 @@ In this document we will dive into the database structure and some guidelines to
 | Name   | Alias name for the Hop  |
 
 ## Aroma
-**Database table linking aroma's to a hop**
+**Database table linking aromas to a hop**
 | Column  | Description                 |
 | ------- | --------------------------- |
 | HopId   | FK to the Hops table Id     |
@@ -75,7 +75,7 @@ In this document we will dive into the database structure and some guidelines to
 | Yield       | Maximum percentage of the weight as soluble extract |
 
 ### Notes
-> If a malt is available from multiple maltser under the same malt name, seperate entries should be created
+> If a malt is available from multiple maltsers under the same malt name, seperate entries should be created
 
 ## LookupMaltser
 **Database table containing all maltser info**
@@ -86,20 +86,21 @@ In this document we will dive into the database structure and some guidelines to
 
 # Yeast
 **Database table containing all Yeast info**
-| Column         | Description                                |
-| -------------- | ------------------------------------------ |
-| Id             | Unique Id                                  |
-| Name           | Name of the yeast                          |
-| Description    | Text description of the yeast              |
-| TempMin        | Minimum temperature the yeast will ferment |
-| TempMax        | Maximum temperature the yeast will ferment |
-| Lab            |                                            |
-| AttenuationMin | Minimum percentage of attenuation          |
-| AttenuationMax | Maximum percentage of attenuation          |
-| Form           | FK to LookupYeastForm table Id             |
-| Flocculation   | FK to LookupYeastFlocculation table Id     |
-| Styles         | Text description of suitable styles        |
-| Strain         | Text description of strain type            |
+| Column          | Description                                |
+| --------------- | ------------------------------------------ |
+| Id              | Unique Id                                  |
+| Name            | Name of the yeast                          |
+| Description     | Text description of the yeast              |
+| TempMin         | Minimum temperature the yeast will ferment |
+| TempMax         | Maximum temperature the yeast will ferment |
+| Lab             |                                            |
+| AttenuationMin  | Minimum percentage of attenuation          |
+| AttenuationMax  | Maximum percentage of attenuation          |
+| Form            | FK to LookupYeastForm table Id             |
+| Flocculation    | FK to LookupYeastFlocculation table Id     |
+| Styles          | Text description of suitable styles        |
+| Strain          | Text description of strain type            |
+| AlcoholTolerance| Maximum ethanol tolerance in fermentation  |
 
 ## LookupLab
 **Database table containing all lab info**
