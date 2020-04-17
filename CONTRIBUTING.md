@@ -63,19 +63,24 @@ In this document we will dive into the database structure and some guidelines to
 
 # Malt
 **Database table containing all Malt info**
-| Column      | Description                                         |
-| ----------- | --------------------------------------------------- |
-| Id          | Unique Id                                           |
-| Name        | Name of the malt                                    |
-| Description | Text description of the malt                        |
-| EBCMin      | Minimum EBC value                                   |
-| EBCMax      | Maximum EBC value                                   |
-| Maltser     | FK to the LookupMaltser table                       | 
-| Ratio       | Maximum percentage of the grist                     |
-| Yield       | Maximum percentage of the weight as soluble extract |
+| Column        | Description                                         |
+| ------------- | --------------------------------------------------- |
+| Id            | Unique Id                                           |
+| Name          | Name of the malt                                    |
+| Description   | Text description of the malt                        |
+| EBCMin        | Minimum EBC value                                   |
+| EBCMax        | Maximum EBC value                                   |
+| Maltser       | FK to the LookupMaltser table                       | 
+| Ratio         | Maximum percentage of the grist                     |
+| Yield         | Maximum percentage of the weight as soluble extract |
+| Grain         | FK to LookupGrainType table id                      |
+| Moisture      | Maximum moisture content                            |
+| DiastaticPower| Grain’s enzymatic content in Windisch-Kolbach units |
+| TotalNitrogen | Measure of total nitrogen content of the grain      |
+| KolbachIndex  | Relation of soluble protein to total nitrogen       |
 
 ### Notes
-> If a malt is available from multiple maltsers under the same malt name, seperate entries should be created
+> If a malt is available from multiple maltsters under the same malt name, seperate entries should be created
 
 ## LookupMaltser
 **Database table containing all maltser info**
