@@ -1,0 +1,23 @@
+List of maltsters to add to database:
+
+- [ ] [Dingemans](http://www.dingemansmout.be/) Update
+- [ ] [Castle Malting](https://www.castlemalting.com/) Update
+- [ ] [Better Brew](https://www.betterbrewing.com/) Update
+- [ ] [Thomas Fawcett](http://www.fawcett-maltsters.co.uk/) Update
+- [ ] [Weyermann](https://www.weyermann.de/eng/index.asp?sprache=2) Update
+- [ ] Arsegan Update
+- [ ] [Muntons](https://www.muntons.com/) Update
+- [ ] [The Swaen](http://theswaen.com/) Update
+- [ ] [Crisp](https://crispmalt.com/)
+- [ ] [Simpsons](https://www.simpsonsmalt.co.uk/)
+- [ ] [Bairds](http://www.bairds-malt.co.uk/)
+- [ ] [Warminster](https://www.warminster-malt.co.uk/)
+- [ ] [Viking](https://www.vikingmalt.com/)
+- [ ] [Best](https://bestmalz.de/en/)
+- [ ] [Avangard](https://www.avangard-malz.de/en/)
+- [ ] [Rahr](http://rahrmaltingco.com/)
+- [ ] [Malteurope](https://www.malteurop.com/en)
+- [ ] [Bestmalz](https://bestmalz.de/en/)
+- [ ] [Minch](https://www.minchmalt.ie/)
+- [ ] [French and Jupps](https://maltspecialists.com/)
+
