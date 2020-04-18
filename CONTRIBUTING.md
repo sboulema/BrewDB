@@ -104,7 +104,7 @@ In this document we will dive into the database structure and some guidelines to
 | Form            | FK to LookupYeastForm table Id             |
 | Flocculation    | FK to LookupYeastFlocculation table Id     |
 | Styles          | Text description of suitable styles        |
-| Strain          | Text description of strain type            |
+| Strain          | FK to LookupYeastStrain table Id           |
 | AlcoholTolerance| Maximum ethanol tolerance in fermentation  |
 
 ## LookupLab
@@ -127,3 +127,10 @@ In this document we will dive into the database structure and some guidelines to
 | ------ | ------------------------------------ |
 | Id     | Unique Id                            |
 | Name   | Name of the yeast flocculation level |
+
+## LookupYeastStrain
+**Database table containing all yeast strain info**
+| Column | Description                 |
+| ------ | --------------------------- |
+| Id     | Unique Id                   |
+| Name   | Name of the strain of yeast |
