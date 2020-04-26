@@ -20,4 +20,5 @@ List of maltsters to add to database:
 - [ ] [Bestmalz](https://bestmalz.de/en/)
 - [ ] [Minch](https://www.minchmalt.ie/)
 - [ ] [French and Jupps](https://maltspecialists.com/)
-
+- [ ] [STAMAG / IREKS](http://www.stamag.at/Malz-zum-Brauen.htm)
+- [ ] [Crafty](https://www.craftymaltsters.co.uk/)
