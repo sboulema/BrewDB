@@ -22,3 +22,7 @@ List of maltsters to add to database:
 - [ ] [French and Jupps](https://maltspecialists.com/)
 - [ ] [STAMAG / IREKS](http://www.stamag.at/Malz-zum-Brauen.htm)
 - [ ] [Crafty](https://www.craftymaltsters.co.uk/)
+
+**Notes**
+
+Where a range of value are offered on a Maltsters analysis sheet, e.g. a Kolbach Index of 43-48 or Total Nitrogen of 1.30-1.60%, the highest number has been used.
