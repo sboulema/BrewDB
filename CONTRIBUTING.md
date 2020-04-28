@@ -63,24 +63,28 @@ In this document we will dive into the database structure and some guidelines to
 
 # Malt
 **Database table containing all Malt info**
-| Column        | Description                                         |
-| ------------- | --------------------------------------------------- |
-| Id            | Unique Id                                           |
-| Name          | Name of the malt                                    |
-| Description   | Text description of the malt                        |
-| EBCMin        | Minimum EBC value                                   |
-| EBCMax        | Maximum EBC value                                   |
-| Maltser       | FK to the LookupMaltser table                       | 
-| Ratio         | Maximum percentage of the grist                     |
-| Yield         | Maximum percentage of the weight as soluble extract |
-| Grain         | FK to LookupGrainType table id                      |
-| Moisture      | Maximum moisture content                            |
-| DiastaticPower| Grain’s enzymatic content in Windisch-Kolbach units |
-| TotalNitrogen | Measure of total nitrogen content of the grain      |
-| KolbachIndex  | Relation of soluble protein to total nitrogen       |
+| Column        | Description                                                               |
+| ------------- | ------------------------------------------------------------------------- |
+| Id            | Unique Id                                                                 |
+| Name          | Name of the malt                                                          |
+| Description   | Text description of the malt                                              |
+| EBCMin        | Minimum EBC value                                                         |
+| EBCMax        | Maximum EBC value                                                         |
+| Maltser       | FK to the LookupMaltser table                                             | 
+| Ratio         | Maximum percentage of the grist                                           |
+| Yield         | Maximum percentage of the weight as soluble extract                       |
+| Grain         | FK to LookupGrainType table id                                            |
+| Moisture      | Maximum moisture content                                                  |
+| DiastaticPower| Grain’s enzymatic content in Windisch-Kolbach units                       |
+| TotalNitrogen | Measure of total nitrogen content of the grain (IoB)                      |
+| KolbachIndex  | Relation of soluble protein to total nitrogen                             |
+| TotalProtein  | Measure of total proteincontent of the grain                              |
+| SNR           | Soluble Nitrogen Ratio. Soluble Nitrogen divided by Total Nitrogen (IoB)  |
 
 ### Notes
 > If a malt is available from multiple maltsters under the same malt name, seperate entries should be created
+> All figures correspond to EBC values, unless otherwise noted
+> Where a range of value are offered on a Maltster's analysis sheet, e.g. a Kolbach Index of 43-48 or Total Nitrogen of 1.30-1.60%, the highest number has been used.
 
 ## LookupMaltser
 **Database table containing all maltser info**
@@ -88,6 +92,13 @@ In this document we will dive into the database structure and some guidelines to
 | ------ | ------------------- |
 | Id     | Unique Id           |
 | Name   | Name of the maltser |
+
+## LookupGrainType
+**Database table containing all grain type info**
+| Column | Description         |
+| ------ | ------------------- |
+| Id     | Unique Id           |
+| Name   | Type of Grain       |
 
 # Yeast
 **Database table containing all Yeast info**
