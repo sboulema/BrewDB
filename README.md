@@ -12,6 +12,15 @@ Small but very handy SQLite database containing a lot of info on the ingredients
 ## Malts
 - Maltser
 - EBC info
+- Maximum addition ratio
+- Grain yield
+- Moisture content
+- Grain type
+- Diastatic Power
+- Kolbach Index
+- Total Protein
+- Total Nitrogen
+- Soluble Nitrogen Ratio
 
 ## Yeast
 - Lab
@@ -33,3 +42,4 @@ For possible usages of this database, have a look at these projects:
 # Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) on how you can contribute to this project
+See Docs folder for current status of data and data sources concerning hops, yeast and malts.
