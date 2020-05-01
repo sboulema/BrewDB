@@ -1,0 +1,46 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: ConvertDatabase
+    displayName: Convert Database
+    jobs:
+      - job: Convert
+        steps:
+        - task: PowerShell@2
+          displayName: MariaDB
+          inputs:
+            targetType: 'inline'
+            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=mariadb&errorResponse=zip'' -o mariadb.zip'
+        - task: PowerShell@2
+          displayName: Postgres
+          inputs:
+            targetType: 'inline'
+            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=postgresql&errorResponse=zip'' -o postgresql.zip'
+        - task: PublishPipelineArtifact@1
+          inputs:
+            targetPath: '$(Pipeline.Workspace)'
+            artifact: '*.zip'
+            publishLocation: 'pipeline'
+  - stage: Release
+    displayName: Release to Github
+    jobs:
+      - job: Release
+        steps:
+        - task: GitHubReleasePublish@1
+          displayName: Github Release
+          inputs:
+            githubEndpoint: 'sboulema'
+            manuallySetRepository: false
+            githubReleaseDraft: false
+            githubReleasePrerelease: false
+            githubIgnoreAssets: false
+            githubReleaseAsset: '*.zip'
+            githubReuseRelease: true
+            githubReuseDraftOnly: true
+            githubSkipDuplicatedAssets: false
+            githubEditRelease: false
+            githubDeleteEmptyTag: false
