@@ -20,6 +20,17 @@ stages:
           inputs:
             targetType: 'inline'
             script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=postgresql&errorResponse=zip'' -o PostgresSQL.zip'
+        - task: PowerShell@2
+          displayName: MySQL
+          inputs:
+            targetType: 'inline'
+            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=mysql&errorResponse=zip'' -o MySQL.zip'
+        - task: PowerShell@2
+          displayName: Excel
+          inputs:
+            targetType: 'inline'
+            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=xlsx&errorResponse=zip'' -o Excel.zip'
+            
         - task: PublishPipelineArtifact@1
           displayName: Publish MariaDB
           inputs:
@@ -32,6 +43,18 @@ stages:
             targetPath: 'PostgresSQL.zip'
             artifact: 'PostgresSQL'
             publishLocation: 'pipeline'
+        - task: PublishPipelineArtifact@1
+          displayName: Publish MySQL
+          inputs:
+            targetPath: 'MySQL.zip'
+            artifact: 'MySQL'
+            publishLocation: 'pipeline'
+        - task: PublishPipelineArtifact@1
+          displayName: Publish Excel
+          inputs:
+            targetPath: 'Excel.zip'
+            artifact: 'Excel'
+            publishLocation: 'pipeline'
   - stage: Release
     displayName: Release to Github
     jobs:
@@ -41,7 +64,9 @@ stages:
           displayName: Github Release
           inputs:
             githubEndpoint: 'sboulema'
-            manuallySetRepository: false
+            manuallySetRepository: true
+            githubOwner: 'sboulema'
+            githubRepositoryName: 'BrewDB'
             githubReleaseDraft: false
             githubReleasePrerelease: false
             githubIgnoreAssets: false
