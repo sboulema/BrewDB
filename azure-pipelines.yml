@@ -72,7 +72,7 @@ stages:
             githubReleaseDraft: false
             githubReleasePrerelease: false
             githubIgnoreAssets: false
-            githubReleaseAsset: '**/*.zip'
+            githubReleaseAsset: '$(Pipeline.Workspace)/**/*.zip'
             githubReuseRelease: true
             githubReuseDraftOnly: true
             githubSkipDuplicatedAssets: false
