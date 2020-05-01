@@ -14,16 +14,23 @@ stages:
           displayName: MariaDB
           inputs:
             targetType: 'inline'
-            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=mariadb&errorResponse=zip'' -o mariadb.zip'
+            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=mariadb&errorResponse=zip'' -o MariaDB.zip'
         - task: PowerShell@2
           displayName: Postgres
           inputs:
             targetType: 'inline'
-            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=postgresql&errorResponse=zip'' -o postgresql.zip'
+            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=postgresql&errorResponse=zip'' -o PostgresSQL.zip'
         - task: PublishPipelineArtifact@1
+          displayName: Publish MariaDB
           inputs:
-            targetPath: '$(Pipeline.Workspace)'
-            artifact: '*.zip'
+            targetPath: 'MariaDB.zip'
+            artifact: 'MariaDB'
+            publishLocation: 'pipeline'
+        - task: PublishPipelineArtifact@1
+          displayName: Publish PostgresSQL
+          inputs:
+            targetPath: 'PostgresSQL.zip'
+            artifact: 'PostgresSQL'
             publishLocation: 'pipeline'
   - stage: Release
     displayName: Release to Github
