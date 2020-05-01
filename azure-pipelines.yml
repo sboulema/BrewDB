@@ -60,6 +60,8 @@ stages:
     jobs:
       - job: Release
         steps:
+        - task: DownloadPipelineArtifact@2
+          displayName: 'Download Pipeline Artifacts'
         - task: GitHubReleasePublish@1
           displayName: Github Release
           inputs:
@@ -70,7 +72,7 @@ stages:
             githubReleaseDraft: false
             githubReleasePrerelease: false
             githubIgnoreAssets: false
-            githubReleaseAsset: '*.zip'
+            githubReleaseAsset: '**/*.zip'
             githubReuseRelease: true
             githubReuseDraftOnly: true
             githubSkipDuplicatedAssets: false
