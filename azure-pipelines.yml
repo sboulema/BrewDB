@@ -14,31 +14,65 @@ stages:
           displayName: MariaDB
           inputs:
             targetType: 'inline'
-            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=mariadb&errorResponse=zip'' -o mariadb.zip'
+            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=mariadb&errorResponse=zip'' -o MariaDB.zip'
         - task: PowerShell@2
           displayName: Postgres
           inputs:
             targetType: 'inline'
-            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=postgresql&errorResponse=zip'' -o postgresql.zip'
-        - task: PublishPipelineArtifact@1
+            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=postgresql&errorResponse=zip'' -o PostgresSQL.zip'
+        - task: PowerShell@2
+          displayName: MySQL
           inputs:
-            targetPath: '$(Pipeline.Workspace)'
-            artifact: '*.zip'
+            targetType: 'inline'
+            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=mysql&errorResponse=zip'' -o MySQL.zip'
+        - task: PowerShell@2
+          displayName: Excel
+          inputs:
+            targetType: 'inline'
+            script: 'curl -F files[]=@brewDB.sqlite ''https://www.rebasedata.com/api/v1/convert?outputFormat=xlsx&errorResponse=zip'' -o Excel.zip'
+            
+        - task: PublishPipelineArtifact@1
+          displayName: Publish MariaDB
+          inputs:
+            targetPath: 'MariaDB.zip'
+            artifact: 'MariaDB'
+            publishLocation: 'pipeline'
+        - task: PublishPipelineArtifact@1
+          displayName: Publish PostgresSQL
+          inputs:
+            targetPath: 'PostgresSQL.zip'
+            artifact: 'PostgresSQL'
+            publishLocation: 'pipeline'
+        - task: PublishPipelineArtifact@1
+          displayName: Publish MySQL
+          inputs:
+            targetPath: 'MySQL.zip'
+            artifact: 'MySQL'
+            publishLocation: 'pipeline'
+        - task: PublishPipelineArtifact@1
+          displayName: Publish Excel
+          inputs:
+            targetPath: 'Excel.zip'
+            artifact: 'Excel'
             publishLocation: 'pipeline'
   - stage: Release
     displayName: Release to Github
     jobs:
       - job: Release
         steps:
+        - task: DownloadPipelineArtifact@2
+          displayName: 'Download Pipeline Artifacts'
         - task: GitHubReleasePublish@1
           displayName: Github Release
           inputs:
             githubEndpoint: 'sboulema'
-            manuallySetRepository: false
+            manuallySetRepository: true
+            githubOwner: 'sboulema'
+            githubRepositoryName: 'BrewDB'
             githubReleaseDraft: false
             githubReleasePrerelease: false
             githubIgnoreAssets: false
-            githubReleaseAsset: '*.zip'
+            githubReleaseAsset: '$(Pipeline.Workspace)/**/*.zip'
             githubReuseRelease: true
             githubReuseDraftOnly: true
             githubSkipDuplicatedAssets: false
