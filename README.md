@@ -43,3 +43,5 @@ For possible usages of this database, have a look at these projects:
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) on how you can contribute to this project
 See Docs folder for current status of data and data sources concerning hops, yeast and malts.
+
+Personal favorite app for editing the sqlite database: [SQLiteStudio](https://www.sqlitestudio.pl/)
