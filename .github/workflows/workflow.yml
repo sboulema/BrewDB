@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Convert to MariaDB
-        uses: wei/curl@v1
+        uses: enflo/curl-action@master
         with:
-          args: --upload-file brewDB.sqlite https://www.rebasedata.com/api/v1/convert?outputFormat=mariadb&errorResponse=zip -o MariaDB.zip
-  
+          curl: -F files[]=@brewDB.sqlite 'https://www.rebasedata.com/api/v1/convert?outputFormat=mariadb&errorResponse=zip' -o MariaDB.zip
+
       - name: Convert to Postgres
         uses: wei/curl@v1
         with:
